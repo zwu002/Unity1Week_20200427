@@ -15,13 +15,14 @@ public class Spawner : MonoBehaviour
     private bool isSpawnEnd = false;
 
     public Vector3 size;
+    public Vector3 colliderSize;
     private Vector3 center;
 
     public float distanceControlX;
     public float distanceControlY;
     public Collider[] colliders;
 
-
+    public float layerDepth;
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +68,7 @@ public class Spawner : MonoBehaviour
             float posX = Random.Range(-size.x / 2, size.x / 2);
             float posY = Random.Range(-size.y / 2, size.y / 2);
 
-            spawnPos = center + new Vector3(posX, posY, posY - transform.position.z);
+            spawnPos = center + new Vector3(posX, posY, posY + layerDepth);
             canSpawnHere = PreventSpawnOverlap(spawnPos);
 
             if (canSpawnHere)
@@ -101,7 +102,7 @@ public class Spawner : MonoBehaviour
 
     bool PreventSpawnOverlap (Vector3 spawnPos)
     {
-        colliders = Physics.OverlapBox(gameObject.transform.position, size, Quaternion.identity);
+        colliders = Physics.OverlapBox(gameObject.transform.position, colliderSize, Quaternion.identity);
 
         for (int i = 0; i < colliders.Length; i++) 
         {
@@ -139,7 +140,7 @@ public class Spawner : MonoBehaviour
             float posX = Random.Range(-size.x / 2, size.x / 2);
             float posY = Random.Range(-size.y / 2, size.y / 2);
 
-            spawnPos = center + new Vector3(posX, posY, posY - transform.position.z);
+            spawnPos = center + new Vector3(posX, posY, posY + layerDepth);
             canSpawnHere = PreventSpawnOverlap(spawnPos);
 
             if (canSpawnHere)
