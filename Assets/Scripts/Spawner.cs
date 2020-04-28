@@ -51,7 +51,8 @@ public class Spawner : MonoBehaviour
 
         if (isSpawnEnd && !catSpawner.isCatSpawned)
         {
-            SpawnCat();
+            Debug.Log("Replace animal with cat!");
+            ReplaceAnimalWithCat();
         }
     }
 
@@ -78,7 +79,6 @@ public class Spawner : MonoBehaviour
 
             if (safetyNet > 20)
             {
-                Debug.Log("can't spawn, while loop too many times!");
                 break;
             }
 
@@ -150,7 +150,6 @@ public class Spawner : MonoBehaviour
 
             if (safetyNet > 20)
             {
-                Debug.Log("can't spawn, while loop too many times!");
                 break;
             }
 
@@ -165,5 +164,20 @@ public class Spawner : MonoBehaviour
             catSpawner.isCatSpawned = true;
             catSpawner.spawnCat = false;
         }
+    }
+
+    void ReplaceAnimalWithCat()
+    {
+        int index = (int)catSpawner.totalSpawnedNumber / 2;
+
+        Vector3 animalTransform = colliders[index].gameObject.transform.position;
+
+        Destroy(colliders[index].gameObject);
+
+        Instantiate(animal[5], animalTransform, Quaternion.identity);
+        actualSpawnNumber++;
+        catSpawner.totalSpawnedNumber++;
+        catSpawner.isCatSpawned = true;
+        catSpawner.spawnCat = false;
     }
 }

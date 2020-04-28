@@ -9,13 +9,11 @@ public class Animal_MouseBehaviour : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Debug.Log("Mouse entered!");
         animator.SetBool("IsHover", true);
     }
 
     void OnMouseExit ()
     {
-        Debug.Log("Mouse exit!");
         animator.SetBool("IsHover", false);
     }
 }
