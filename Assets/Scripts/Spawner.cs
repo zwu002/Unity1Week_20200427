@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject neko;
+    public GameObject[] animal;
+
+    public int spawnNumber;
 
     public Vector3 size;
     private Vector3 center;
 
-    public Vector3 boxSize;
+    public float distanceControlX;
+    public float distanceControlY;
     public Collider[] colliders;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +27,11 @@ public class Spawner : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q))
         {
-            SpawnNeko();
+            SpawnAnimal();
         } 
     }
 
-    public void SpawnNeko()
+    public void SpawnAnimal()
     {
 
         Vector3 spawnPos = center;
@@ -58,7 +62,7 @@ public class Spawner : MonoBehaviour
 
         if (canSpawnHere)
         {
-            Instantiate(neko, spawnPos, Quaternion.identity);
+            Instantiate(animal[0], spawnPos, Quaternion.identity);
         }
     }
 
@@ -71,7 +75,7 @@ public class Spawner : MonoBehaviour
 
     bool PreventSpawnOverlap (Vector3 spawnPos)
     {
-        colliders = Physics.OverlapBox(gameObject.transform.position, boxSize, Quaternion.identity);
+        colliders = Physics.OverlapBox(gameObject.transform.position, size, Quaternion.identity);
 
         for (int i = 0; i < colliders.Length; i++) 
         {
@@ -79,10 +83,10 @@ public class Spawner : MonoBehaviour
             float width = colliders[i].bounds.extents.x;
             float height = colliders[i].bounds.extents.y;
 
-            float leftExtent = centerPoint.x - width;
-            float rightExtent = centerPoint.x + width;
-            float lowerExtent = centerPoint.y - height;
-            float upperExtent = centerPoint.y + height;
+            float leftExtent = centerPoint.x - width - distanceControlX;
+            float rightExtent = centerPoint.x + width + distanceControlX;
+            float lowerExtent = centerPoint.y - height - distanceControlY;
+            float upperExtent = centerPoint.y + height + distanceControlY;
 
             if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
             {
