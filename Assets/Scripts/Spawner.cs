@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public CatSpawner catSpawner;
     public GameObject[] animal;
 
     public int spawnNumberMax;
 
     [SerializeField] private int currentSpawnNumber = 0;
     [SerializeField] private int actualSpawnNumber = 0;
+
+    private bool isSpawnEnd = false;
 
     public Vector3 size;
     private Vector3 center;
@@ -28,11 +31,27 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (catSpawner.spawnCat)
+        {
+            SpawnCat();
+            return;
+        }
+
+
         if (currentSpawnNumber < spawnNumberMax)
         {
             SpawnAnimal();
             currentSpawnNumber++;
         } 
+        else if (currentSpawnNumber == spawnNumberMax)
+        {
+            isSpawnEnd = true;
+        }
+
+        if (isSpawnEnd && !catSpawner.isCatSpawned)
+        {
+            SpawnCat();
+        }
     }
 
     public void SpawnAnimal()
@@ -48,7 +67,7 @@ public class Spawner : MonoBehaviour
             float posX = Random.Range(-size.x / 2, size.x / 2);
             float posY = Random.Range(-size.y / 2, size.y / 2);
 
-            spawnPos = center + new Vector3(posX, posY, posY);
+            spawnPos = center + new Vector3(posX, posY, posY - transform.position.z);
             canSpawnHere = PreventSpawnOverlap(spawnPos);
 
             if (canSpawnHere)
@@ -56,7 +75,7 @@ public class Spawner : MonoBehaviour
                 break;
             }
 
-            if (safetyNet > 50)
+            if (safetyNet > 20)
             {
                 Debug.Log("can't spawn, while loop too many times!");
                 break;
@@ -69,6 +88,7 @@ public class Spawner : MonoBehaviour
         {
             Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
             actualSpawnNumber++;
+            catSpawner.totalSpawnedNumber++;
         }
     }
 
@@ -76,7 +96,7 @@ public class Spawner : MonoBehaviour
     {
 
         Gizmos.color = new Color(1, 0, 0, 0.2f);
-        Gizmos.DrawCube(center, size);
+        Gizmos.DrawCube(new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), size);
     }
 
     bool PreventSpawnOverlap (Vector3 spawnPos)
@@ -104,5 +124,45 @@ public class Spawner : MonoBehaviour
         }
 
         return true;
+    }
+
+    void SpawnCat()
+    {
+        int currentAnimalIndex = (int)Random.Range(0, 5);
+
+        Vector3 spawnPos = center;
+        bool canSpawnHere = false;
+        int safetyNet = 0;
+
+        while (!canSpawnHere)
+        {
+            float posX = Random.Range(-size.x / 2, size.x / 2);
+            float posY = Random.Range(-size.y / 2, size.y / 2);
+
+            spawnPos = center + new Vector3(posX, posY, posY - transform.position.z);
+            canSpawnHere = PreventSpawnOverlap(spawnPos);
+
+            if (canSpawnHere)
+            {
+                break;
+            }
+
+            if (safetyNet > 20)
+            {
+                Debug.Log("can't spawn, while loop too many times!");
+                break;
+            }
+
+            safetyNet++;
+        }
+
+        if (canSpawnHere)
+        {
+            Instantiate(animal[5], spawnPos, Quaternion.identity);
+            actualSpawnNumber++;
+            catSpawner.totalSpawnedNumber++;
+            catSpawner.isCatSpawned = true;
+            catSpawner.spawnCat = false;
+        }
     }
 }
