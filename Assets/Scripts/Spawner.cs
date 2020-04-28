@@ -6,7 +6,10 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] animal;
 
-    public int spawnNumber;
+    public int spawnNumberMax;
+
+    [SerializeField] private int currentSpawnNumber = 0;
+    [SerializeField] private int actualSpawnNumber = 0;
 
     public Vector3 size;
     private Vector3 center;
@@ -25,14 +28,16 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (currentSpawnNumber < spawnNumberMax)
         {
             SpawnAnimal();
+            currentSpawnNumber++;
         } 
     }
 
     public void SpawnAnimal()
     {
+        int currentAnimalIndex = (int)Random.Range(0, 5);
 
         Vector3 spawnPos = center;
         bool canSpawnHere = false;
@@ -62,7 +67,8 @@ public class Spawner : MonoBehaviour
 
         if (canSpawnHere)
         {
-            Instantiate(animal[0], spawnPos, Quaternion.identity);
+            Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
+            actualSpawnNumber++;
         }
     }
 

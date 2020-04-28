@@ -266,9 +266,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a53c5505a0ba6945b898f5d0a5f0ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neko: {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
-  size: {x: 5, y: 5, z: 0}
-  boxSize: {x: 1, y: 1, z: 0}
+  animal:
+  - {fileID: 6235001051361349491, guid: e5eaa39faaa9af34eacf6177ef8c2bc9, type: 3}
+  - {fileID: 5750400902773010704, guid: 379bf3dacb8416d478bc8ea0f9efec19, type: 3}
+  - {fileID: 4207821809230007165, guid: b204394be05cb194ebdc7779834f74a7, type: 3}
+  - {fileID: 8485151596061622555, guid: 2bf310dc02b2577429d3a160ad945055, type: 3}
+  - {fileID: 6899496678741884022, guid: 1de870e02edbf084fa95576eb3ce00a9, type: 3}
+  - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
+  spawnNumberMax: 100
+  currentSpawnNumber: 0
+  actualSpawnNumber: 0
+  size: {x: 10, y: 5, z: 5}
+  distanceControlX: 0
+  distanceControlY: 0
   colliders: []
 --- !u!1 &187876092
 GameObject:
