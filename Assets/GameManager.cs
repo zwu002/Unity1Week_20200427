@@ -6,10 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] level;
     public GameObject[] levelUI;
+    public float[] levelTime;
 
     public GameObject mainMenu;
     public GameObject mainHUD;
     public GameObject nextLevelUI;
+    public GameObject levelLoadingUI;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Cat Found!");
         isCatFound = true;
+        mainHUD.SetActive(false);
 
         currentLevel++;
         if (currentLevel < totalLevel)
@@ -80,11 +83,21 @@ public class GameManager : MonoBehaviour
         level[currentLevel].SetActive(true);
     }
 
-    public void NextLevelBegin()
+    public void LoadNextLevel()
     {
         nextLevelUI.SetActive(false);
+        levelUI[currentLevel-1].SetActive(false);
         levelUI[currentLevel].SetActive(true);
+        level[currentLevel - 1].SetActive(false);
     }
+
+    public void LevelBegin()
+    {
+        mainHUD.SetActive(true);
+
+        level[currentLevel].SetActive(true);
+    }
+
 
     public void ClearGameData()
     {
