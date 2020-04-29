@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6799338820619890756}
   - component: {fileID: 3842923663400054084}
   - component: {fileID: 3553532592015141166}
+  - component: {fileID: 1555296308625975429}
   - component: {fileID: -6313827368879845082}
   m_Layer: 0
   m_Name: Neko
@@ -117,6 +118,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3842923663400054084}
+--- !u!114 &1555296308625975429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7840151176315942730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20452d82c5ed69645ae06952916a4d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &-6313827368879845082
 BoxCollider:
   m_ObjectHideFlags: 0
