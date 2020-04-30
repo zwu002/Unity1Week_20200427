@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3443646537084993506}
   - component: {fileID: 4218833143960258076}
   - component: {fileID: 6510304409467550988}
+  - component: {fileID: 6450006594432092604}
   m_Layer: 0
   m_Name: Kitsune
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5176523, y: 2.0309055, z: 0.1}
   m_Center: {x: -0.022189021, y: 0.013451576, z: 0}
+--- !u!114 &6450006594432092604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485151596061622555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec15bf92a9116754389bdf56288d3642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

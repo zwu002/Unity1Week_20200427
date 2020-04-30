@@ -13,13 +13,13 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLevelTime = GameManager.GetInstance().levelTime[GameManager.GetInstance().currentLevel];
-        currentTime = currentLevelTime;
+        ResetTimer();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
@@ -32,5 +32,11 @@ public class Timer : MonoBehaviour
         {
             GameManager.GetInstance().GameOver();
         }
+    }
+
+    public void ResetTimer()
+    {
+        currentLevelTime = GameManager.GetInstance().levelTime[GameManager.GetInstance().currentLevel];
+        currentTime = currentLevelTime;
     }
 }

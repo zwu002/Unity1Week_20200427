@@ -6,7 +6,6 @@ public class Animal_MouseBehaviour : MonoBehaviour
 {
     public Animator animator;
 
-
     void OnMouseEnter()
     {
         animator.SetBool("IsHover", true);

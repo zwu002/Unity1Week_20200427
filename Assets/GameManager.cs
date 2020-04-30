@@ -15,12 +15,16 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject gameWinUI;
 
+    public Timer timer;
+
     public int currentLevel;
     public int totalLevel;
     public bool isCatFound;
     public bool isGameOver;
 
     static GameManager instance = null;
+
+    public bool killingAnimals;
 
     void Awake()
     {
@@ -89,11 +93,14 @@ public class GameManager : MonoBehaviour
         levelUI[currentLevel-1].SetActive(false);
         levelUI[currentLevel].SetActive(true);
         level[currentLevel - 1].SetActive(false);
+
+        StartCoroutine(KillAllAnimal());
     }
 
     public void LevelBegin()
     {
         mainHUD.SetActive(true);
+        timer.ResetTimer();
 
         level[currentLevel].SetActive(true);
     }
@@ -102,5 +109,12 @@ public class GameManager : MonoBehaviour
     public void ClearGameData()
     {
 
+    }
+
+    IEnumerator KillAllAnimal()
+    {
+        killingAnimals = true;
+        yield return new WaitForSeconds(1f);
+        killingAnimals = false;
     }
 }

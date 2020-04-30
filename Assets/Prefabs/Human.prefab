@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4829727027225464043}
   - component: {fileID: 6537553194873063157}
   - component: {fileID: 2005251336370325757}
+  - component: {fileID: 643363271907430011}
   m_Layer: 0
   m_Name: Human
   m_TagString: Untagged
@@ -130,3 +131,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8519906, y: 2.0309055, z: 0.1}
   m_Center: {x: -0.00000029802322, y: 0.013451576, z: 0}
+--- !u!114 &643363271907430011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750400902773010704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec15bf92a9116754389bdf56288d3642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
