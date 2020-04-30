@@ -9,10 +9,10 @@ public class Spawner : MonoBehaviour
 
     public int spawnNumberMax;
 
-    [SerializeField] private int currentSpawnNumber = 0;
+    public int currentSpawnNumber = 0;
 
-    private bool isSpawnEnd = false;
-    private bool isCatDetected = false;
+    public bool isSpawnEnd = false;
+    public bool isCatDetected = false;
 
     public Vector3 size;
     public Vector3 colliderSize;

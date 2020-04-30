@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelLoadingUI;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
+    public TextMeshProUGUI timeThisRound;
 
     public Timer timer;
     public float totalTime;
@@ -29,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        Time.timeScale = 1;
+
         Debug.Log("Game Manager Awake");
         if (null == instance)
         {
@@ -80,19 +85,27 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         Debug.Log("You Won!");
+
         gameWinUI.SetActive(true);
+        timeThisRound.text = (int)totalTime + "s";
+
+        Time.timeScale = 0;
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over!");
+
+        mainHUD.SetActive(false);
         gameOverUI.SetActive(true);
+
+        Time.timeScale = 0;
     }
 
     public void RestartGame()
     {
-        ClearGameData();
-        level[currentLevel].SetActive(true);
+        // in a violent way :)
+        SceneManager.LoadScene("MainScene");
     }
 
     public void LoadNextLevel()
@@ -100,7 +113,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(KillAllAnimal());
 
         nextLevelUI.SetActive(false);
-        levelUI[currentLevel-1].SetActive(false);
+
+        levelUI[currentLevel-1].SetActive(false);    
         levelUI[currentLevel].SetActive(true);
     }
 
@@ -117,17 +131,16 @@ public class GameManager : MonoBehaviour
         totalTime += levelTime[currentLevel] - timer.currentTime;
     }
 
-    public void ClearGameData()
-    {
-
-    }
-
     IEnumerator KillAllAnimal()
     {
         killingAnimals = true;
         yield return new WaitForSeconds(1f);
 
         killingAnimals = false;
-        level[currentLevel - 1].SetActive(false);
+
+        foreach (GameObject level in level)
+        {
+            level.SetActive(false);
+        }
     }
 }

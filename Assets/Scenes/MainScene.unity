@@ -568,7 +568,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 58972097}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1262778922}
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &58972097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +670,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 10
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 8, y: 1, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -903,7 +916,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e18db3a228258fc44a6f1e46478f94e5, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1214,7 +1227,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 386265082}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1262778922}
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &386265082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,6 +1469,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 5
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 2, y: 2, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -1603,6 +1629,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 100
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 8, y: 5, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0
@@ -1820,6 +1848,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 15
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10.5, y: 0, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -1879,6 +1909,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 15
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10.5, y: 0, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -2120,7 +2152,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 31b0fc1129dfc6b4bb7e6942ffe2fe37, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -2248,6 +2280,7 @@ Transform:
   - {fileID: 1717796912}
   - {fileID: 1628357445}
   - {fileID: 1314863748}
+  - {fileID: 1258942155}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2787,6 +2820,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 15
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10.5, y: 0, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -3012,7 +3047,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 59f27d4aa899f464e9463921b18b20c8, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -3234,6 +3269,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 200
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10, y: 8, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0
@@ -3293,6 +3330,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 15
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10.5, y: 0, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -3352,6 +3391,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 5
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 2, y: 2, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2
@@ -3444,7 +3485,7 @@ GameObject:
   - component: {fileID: 1108487066}
   - component: {fileID: 1108487065}
   m_Layer: 5
-  m_Name: Text_BestTime
+  m_Name: Text_TimeThisRound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4043,6 +4084,67 @@ Transform:
   m_Father: {fileID: 1474991005}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1258942154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1258942155}
+  - component: {fileID: 1258942157}
+  - component: {fileID: 1258942156}
+  m_Layer: 0
+  m_Name: TimerCollider
+  m_TagString: NoSpawnZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258942155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258942154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.29, y: -3.76, z: -8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 690320256}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1258942156
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258942154}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1258942157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258942154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1124935, y: 0.8589926, z: 100}
+  m_Center: {x: -0.26719475, y: -0.81266093, z: 0}
 --- !u!1 &1262778921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,6 +4195,7 @@ MonoBehaviour:
   levelLoadingUI: {fileID: 1734358899}
   gameOverUI: {fileID: 1692956873}
   gameWinUI: {fileID: 864306006}
+  timeThisRound: {fileID: 1108487065}
   timer: {fileID: 618157238}
   totalTime: 0
   currentLevel: 0
@@ -4670,7 +4773,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cb77b011ed705454f84c1714c49bd6a9, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -4904,6 +5007,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 100
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 8, y: 5, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0
@@ -5301,7 +5406,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 66c5979e80db47e4fbf67c4c77d31afc, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -5516,7 +5621,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 6d96f7285cad0b44f867cb7a6ac97c45, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -6448,6 +6553,8 @@ MonoBehaviour:
   - {fileID: 7840151176315942730, guid: 99ab9629cacbc0d498ccac1f75469258, type: 3}
   spawnNumberMax: 15
   currentSpawnNumber: 0
+  isSpawnEnd: 0
+  isCatDetected: 0
   size: {x: 10.5, y: 0, z: 0}
   colliderSize: {x: 100, y: 100, z: 100}
   distanceControlX: 0.2

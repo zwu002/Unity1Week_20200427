@@ -25,8 +25,12 @@ public class CatSpawner : MonoBehaviour
             totalAnimalNumber += spawner.spawnNumberMax;
         }
 
-
         catSpawnIndex = (int)Random.Range(0, catSpawnPosition);
+
+        totalSpawnedNumber = 0;
+        isCatSpawned = false;
+        spawnCat = false;
+        isCatKilled = false;
     }
 
     // Update is called once per frame
