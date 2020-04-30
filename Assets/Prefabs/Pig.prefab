@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &1998969618288937201
@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1998969618288937201}
+  minIdleTime: 3
+  maxIdleTime: 5
 --- !u!65 &8087298382652316353
 BoxCollider:
   m_ObjectHideFlags: 0

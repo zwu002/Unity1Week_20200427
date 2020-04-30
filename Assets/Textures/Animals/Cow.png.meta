@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: -7810360661050545635
     second: Cow_1
+  - first:
+      213: -4775782308064348941
+    second: Cow_0
+  - first:
+      213: 4531723403448176740
+    second: Cow_1
+  - first:
+      213: -5649190053744765936
+    second: Cow_2
+  - first:
+      213: 5381308046820054851
+    second: Cow_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9529b71b5372ab50800000000000000
-      internalID: 6602966838755796383
+      spriteID: 3f4ba334b4309bdb0800000000000000
+      internalID: -4775782308064348941
       vertices: []
       indices: 
       edges: []
@@ -152,8 +164,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1aa56e1c560c9390800000000000000
-      internalID: -7810360661050545635
+      spriteID: 4605ad2ec6ae3ee30800000000000000
+      internalID: 4531723403448176740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cow_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0149fd9a39b0a91b0800000000000000
+      internalID: -5649190053744765936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cow_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34719ad382f3eaa40800000000000000
+      internalID: 5381308046820054851
       vertices: []
       indices: 
       edges: []

@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3842923663400054084}
+  minIdleTime: 3
+  maxIdleTime: 5
 --- !u!114 &1555296308625975429
 MonoBehaviour:
   m_ObjectHideFlags: 0

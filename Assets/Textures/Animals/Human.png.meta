@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: 5141848466958252020
     second: Human_1
+  - first:
+      213: -7555635769393494885
+    second: Human_0
+  - first:
+      213: 2625435349398960900
+    second: Human_1
+  - first:
+      213: -1194269119152116161
+    second: Human_2
+  - first:
+      213: -7617465119821360035
+    second: Human_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5580058e29fbc390800000000000000
-      internalID: -7796864351666666146
+      spriteID: b94c0199c4df42790800000000000000
+      internalID: -7555635769393494885
       vertices: []
       indices: 
       edges: []
@@ -152,8 +164,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f7fee120f38b5740800000000000000
-      internalID: 5141848466958252020
+      spriteID: 40bbda54a8b6f6420800000000000000
+      internalID: 2625435349398960900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e28ba409a1d6fe0800000000000000
+      internalID: -1194269119152116161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Human_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d549e1425d3594690800000000000000
+      internalID: -7617465119821360035
       vertices: []
       indices: 
       edges: []

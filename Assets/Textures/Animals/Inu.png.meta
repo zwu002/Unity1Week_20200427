@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: 6231546387289324866
     second: Inu_1
+  - first:
+      213: 4349914746863771535
+    second: Inu_0
+  - first:
+      213: 4114535759548525910
+    second: Inu_1
+  - first:
+      213: 6814396566114921197
+    second: Inu_2
+  - first:
+      213: -6861361389344539562
+    second: Inu_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fe17c15674d52250800000000000000
-      internalID: 5919370889891618546
+      spriteID: f8f5c0a5a600e5c30800000000000000
+      internalID: 4349914746863771535
       vertices: []
       indices: 
       edges: []
@@ -152,8 +164,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24dbfbf4c66ea7650800000000000000
-      internalID: 6231546387289324866
+      spriteID: 65d288b3974c91930800000000000000
+      internalID: 4114535759548525910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inu_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deaebe99299919e50800000000000000
+      internalID: 6814396566114921197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inu_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cb9806b2c87c0a0800000000000000
+      internalID: -6861361389344539562
       vertices: []
       indices: 
       edges: []

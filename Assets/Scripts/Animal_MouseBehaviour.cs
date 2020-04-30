@@ -6,6 +6,30 @@ public class Animal_MouseBehaviour : MonoBehaviour
 {
     public Animator animator;
 
+    [SerializeField] private float minIdleTime;
+    [SerializeField] private float maxIdleTime;
+
+    private float timer;
+    private float nextIdleTime;
+
+    void Start ()
+    {
+        timer = Time.time;
+        nextIdleTime = Random.Range(minIdleTime, maxIdleTime);
+    }
+
+    void Update ()
+    {
+
+        if (Time.time - timer >= nextIdleTime)
+        {
+            animator.SetTrigger("Idle");
+            timer = Time.time;
+            nextIdleTime = Random.Range(minIdleTime, maxIdleTime);
+        }
+
+    }
+
     void OnMouseEnter()
     {
         animator.SetBool("IsHover", true);
