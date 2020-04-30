@@ -9,6 +9,7 @@ public class CatSpawner : MonoBehaviour
     public int catSpawnPosition;
     public bool isCatSpawned = false;
     public bool spawnCat = false;
+    public bool isCatKilled = false;
 
     public Spawner[] spawners;
 
@@ -34,6 +35,18 @@ public class CatSpawner : MonoBehaviour
         if (!isCatSpawned && totalSpawnedNumber >= catSpawnIndex)
         {
             spawnCat = true;
+        }
+    }
+
+    public void DetectCat()
+    {
+        Debug.Log("Searching for cat..");
+
+        GameObject[] cat = GameObject.FindGameObjectsWithTag("Cat");
+
+        if (cat.Length != 1)
+        {
+            isCatKilled = true;
         }
     }
 }

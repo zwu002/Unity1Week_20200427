@@ -8,7 +8,6 @@ public class Amimal_SelfKill : MonoBehaviour
     private float currentTime;
     private bool isRendered = false;
 
-
     void Start()
     {
         currentTime = Time.time;

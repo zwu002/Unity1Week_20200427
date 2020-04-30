@@ -100,9 +100,10 @@ public class GameManager : MonoBehaviour
         nextLevelUI.SetActive(false);
         levelUI[currentLevel-1].SetActive(false);
         levelUI[currentLevel].SetActive(true);
-        level[currentLevel - 1].SetActive(false);
 
         StartCoroutine(KillAllAnimal());
+
+        level[currentLevel - 1].SetActive(false);
     }
 
     public void LevelBegin()

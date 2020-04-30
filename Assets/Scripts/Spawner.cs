@@ -10,9 +10,9 @@ public class Spawner : MonoBehaviour
     public int spawnNumberMax;
 
     [SerializeField] private int currentSpawnNumber = 0;
-    [SerializeField] private int actualSpawnNumber = 0;
 
     private bool isSpawnEnd = false;
+    private bool isCatDetected = false;
 
     public Vector3 size;
     public Vector3 colliderSize;
@@ -35,11 +35,8 @@ public class Spawner : MonoBehaviour
         if (catSpawner.spawnCat)
         {
             SpawnCat();
-            return;
         }
-
-
-        if (currentSpawnNumber < spawnNumberMax)
+        else if (currentSpawnNumber < spawnNumberMax)
         {
             SpawnAnimal();
             currentSpawnNumber++;
@@ -49,11 +46,26 @@ public class Spawner : MonoBehaviour
             isSpawnEnd = true;
         }
 
-        if (isSpawnEnd && !catSpawner.isCatSpawned)
+        if (isSpawnEnd && !isCatDetected)
         {
-            Debug.Log("Replace animal with cat!");
-            ReplaceAnimalWithCat();
+            catSpawner.DetectCat();
+            isCatDetected = true;
+
+            if (!catSpawner.isCatSpawned)
+            {
+                Debug.Log("Cat not spawned, replace animal with cat!");
+                ReplaceAnimalWithCat();
+            }
+
+
+            if (catSpawner.isCatKilled)
+            {
+                Debug.Log("replace animal with cat!");
+                ReplaceAnimalWithCat();
+            }
         }
+
+
     }
 
     public void SpawnAnimal()
@@ -87,8 +99,8 @@ public class Spawner : MonoBehaviour
 
         if (canSpawnHere)
         {
-            Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
-            actualSpawnNumber++;
+            GameObject currentAnimal = Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
+            currentAnimal.transform.parent = gameObject.transform;
             catSpawner.totalSpawnedNumber++;
         }
     }
@@ -106,20 +118,23 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++) 
         {
-            Vector3 centerPoint = colliders[i].bounds.center;
-            float width = colliders[i].bounds.extents.x;
-            float height = colliders[i].bounds.extents.y;
-
-            float leftExtent = centerPoint.x - width - distanceControlX;
-            float rightExtent = centerPoint.x + width + distanceControlX;
-            float lowerExtent = centerPoint.y - height - distanceControlY;
-            float upperExtent = centerPoint.y + height + distanceControlY;
-
-            if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
+            if (!colliders[i].gameObject.CompareTag("NoSpawnZone"))
             {
-                if (spawnPos.y >= lowerExtent && spawnPos.y <= upperExtent)
+                Vector3 centerPoint = colliders[i].bounds.center;
+                float width = colliders[i].bounds.extents.x;
+                float height = colliders[i].bounds.extents.y;
+
+                float leftExtent = centerPoint.x - width - distanceControlX;
+                float rightExtent = centerPoint.x + width + distanceControlX;
+                float lowerExtent = centerPoint.y - height - distanceControlY;
+                float upperExtent = centerPoint.y + height + distanceControlY;
+
+                if (spawnPos.x >= leftExtent && spawnPos.x <= rightExtent)
                 {
-                    return false;
+                    if (spawnPos.y >= lowerExtent && spawnPos.y <= upperExtent)
+                    {
+                        return false;
+                    }
                 }
             }
         }
@@ -158,9 +173,8 @@ public class Spawner : MonoBehaviour
 
         if (canSpawnHere)
         {
-            Instantiate(animal[5], spawnPos, Quaternion.identity);
-            actualSpawnNumber++;
-            catSpawner.totalSpawnedNumber++;
+            GameObject cat = Instantiate(animal[5], spawnPos, Quaternion.identity);
+            cat.transform.parent = gameObject.transform;
             catSpawner.isCatSpawned = true;
             catSpawner.spawnCat = false;
         }
@@ -168,16 +182,14 @@ public class Spawner : MonoBehaviour
 
     void ReplaceAnimalWithCat()
     {
-        int index = (int)catSpawner.totalSpawnedNumber / 2;
+        Vector3 animalTransform = colliders[5].gameObject.transform.position;
 
-        Vector3 animalTransform = colliders[index].gameObject.transform.position;
-
-        Destroy(colliders[index].gameObject);
+        Destroy(colliders[5].gameObject);
 
         Instantiate(animal[5], animalTransform, Quaternion.identity);
-        actualSpawnNumber++;
-        catSpawner.totalSpawnedNumber++;
+
         catSpawner.isCatSpawned = true;
         catSpawner.spawnCat = false;
+        catSpawner.isCatKilled = false;
     }
 }

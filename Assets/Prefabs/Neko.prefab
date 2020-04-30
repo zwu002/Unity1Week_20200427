@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 39934447116938598}
   m_Layer: 0
   m_Name: Neko
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,8 +156,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4696542, y: 0.7698595, z: 0.1}
-  m_Center: {x: 0.028137118, y: 0.009763502, z: 0}
+  m_Size: {x: 1.0604444, y: 1.951092, z: 0.1}
+  m_Center: {x: 0.005414523, y: -0.0026267022, z: 0}
 --- !u!54 &39934447116938598
 Rigidbody:
   m_ObjectHideFlags: 0
