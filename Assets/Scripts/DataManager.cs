@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private static DataManager instance = null;
+    private static float bestTime = 999f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public static float BestTime { get => bestTime; set => bestTime = value; }
+
+
+
 }

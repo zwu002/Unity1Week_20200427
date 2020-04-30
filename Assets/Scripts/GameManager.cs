@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject gameWinUI;
     public TextMeshProUGUI timeThisRound;
+    public TextMeshProUGUI bestTime;
 
     public Timer timer;
     public float totalTime;
@@ -87,7 +88,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("You Won!");
 
         gameWinUI.SetActive(true);
+
+        RecordBestTime();
+
         timeThisRound.text = (int)totalTime + "s";
+        bestTime.text = (int)DataManager.BestTime + "s";
 
         Time.timeScale = 0;
     }
@@ -129,6 +134,14 @@ public class GameManager : MonoBehaviour
     void RecordFinishedTime()
     {
         totalTime += levelTime[currentLevel] - timer.currentTime;
+    }
+
+    void RecordBestTime()
+    {
+        if (totalTime < DataManager.BestTime)
+        {
+            DataManager.BestTime = totalTime;
+        }
     }
 
     IEnumerator KillAllAnimal()
