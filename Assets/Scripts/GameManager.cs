@@ -97,13 +97,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        StartCoroutine(KillAllAnimal());
+
         nextLevelUI.SetActive(false);
         levelUI[currentLevel-1].SetActive(false);
         levelUI[currentLevel].SetActive(true);
-
-        StartCoroutine(KillAllAnimal());
-
-        level[currentLevel - 1].SetActive(false);
     }
 
     public void LevelBegin()
@@ -128,6 +126,8 @@ public class GameManager : MonoBehaviour
     {
         killingAnimals = true;
         yield return new WaitForSeconds(1f);
+
         killingAnimals = false;
+        level[currentLevel - 1].SetActive(false);
     }
 }
