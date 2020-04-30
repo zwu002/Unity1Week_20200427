@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     [SerializeField] float currentLevelTime;
-    [SerializeField] float currentTime;
+    public float currentTime;
 
     public Image foreground;
 

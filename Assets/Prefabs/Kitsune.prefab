@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4218833143960258076}
   - component: {fileID: 6510304409467550988}
   - component: {fileID: 6450006594432092604}
+  - component: {fileID: 1188949352219830150}
   m_Layer: 0
   m_Name: Kitsune
   m_TagString: Untagged
@@ -42,7 +43,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485151596061622555}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -129,8 +130,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5176523, y: 2.0309055, z: 0.1}
-  m_Center: {x: -0.022189021, y: 0.013451576, z: 0}
+  m_Size: {x: 0.690766, y: 0.92620933, z: 0.1}
+  m_Center: {x: -0.074808896, y: -0.07297058, z: 0}
 --- !u!114 &6450006594432092604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +144,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec15bf92a9116754389bdf56288d3642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startRenderingTime: 0.1
+--- !u!54 &1188949352219830150
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485151596061622555}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

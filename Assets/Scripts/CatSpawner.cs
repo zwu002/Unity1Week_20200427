@@ -6,6 +6,7 @@ public class CatSpawner : MonoBehaviour
 {
     public int totalAnimalNumber;
     public int totalSpawnedNumber;
+    public int catSpawnPosition;
     public bool isCatSpawned = false;
     public bool spawnCat = false;
 
@@ -24,7 +25,7 @@ public class CatSpawner : MonoBehaviour
         }
 
 
-        catSpawnIndex = (int)Random.Range(0, totalAnimalNumber);
+        catSpawnIndex = (int)Random.Range(0, catSpawnPosition);
     }
 
     // Update is called once per frame

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameWinUI;
 
     public Timer timer;
+    public float totalTime;
 
     public int currentLevel;
     public int totalLevel;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
         }
 
         currentLevel = 0;
+        totalTime = 0f;
 
         level[currentLevel].SetActive(true);
 
@@ -53,6 +55,12 @@ public class GameManager : MonoBehaviour
     public void CatFound()
     {
         Debug.Log("Cat Found!");
+
+        if (currentLevel != 0)
+        {
+            RecordFinishedTime();
+        }
+
         isCatFound = true;
         mainHUD.SetActive(false);
 
@@ -105,6 +113,10 @@ public class GameManager : MonoBehaviour
         level[currentLevel].SetActive(true);
     }
 
+    void RecordFinishedTime()
+    {
+        totalTime += levelTime[currentLevel] - timer.currentTime;
+    }
 
     public void ClearGameData()
     {
