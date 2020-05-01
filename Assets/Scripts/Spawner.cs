@@ -22,6 +22,7 @@ public class Spawner : MonoBehaviour
     public float distanceControlY;
     public Collider[] colliders;
 
+    public float spawnScale = 0.8f;
     public float layerDepth;
     // Start is called before the first frame update
     void Start()
@@ -101,6 +102,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject currentAnimal = Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
             currentAnimal.transform.parent = gameObject.transform;
+            currentAnimal.transform.localScale *= spawnScale;
             catSpawner.totalSpawnedNumber++;
         }
     }
@@ -175,6 +177,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject cat = Instantiate(animal[5], spawnPos, Quaternion.identity);
             cat.transform.parent = gameObject.transform;
+            cat.transform.localScale *= spawnScale;
             catSpawner.isCatSpawned = true;
             catSpawner.spawnCat = false;
         }
@@ -186,7 +189,8 @@ public class Spawner : MonoBehaviour
 
         Destroy(colliders[5].gameObject);
 
-        Instantiate(animal[5], animalTransform, Quaternion.identity);
+        GameObject cat = Instantiate(animal[5], animalTransform, Quaternion.identity);
+        cat.transform.localScale *= spawnScale;
 
         catSpawner.isCatSpawned = true;
         catSpawner.spawnCat = false;
