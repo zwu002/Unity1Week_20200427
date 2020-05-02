@@ -5,9 +5,11 @@ using UnityEngine;
 public class Animal_MouseBehaviour : MonoBehaviour
 {
     public Animator animator;
+    public SpriteRenderer swimming;
+    public bool isSwimming;
 
-    [SerializeField] private float minIdleTime;
-    [SerializeField] private float maxIdleTime;
+    [SerializeField] private float minIdleTime = 3f;
+    [SerializeField] private float maxIdleTime = 5f;
 
     private float timer;
     private float nextIdleTime;

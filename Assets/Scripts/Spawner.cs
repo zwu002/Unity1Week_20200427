@@ -24,6 +24,8 @@ public class Spawner : MonoBehaviour
 
     public float spawnScale = 0.8f;
     public float layerDepth;
+
+    public bool isSwimmingLevel = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -103,6 +105,12 @@ public class Spawner : MonoBehaviour
             GameObject currentAnimal = Instantiate(animal[currentAnimalIndex], spawnPos, Quaternion.identity);
             currentAnimal.transform.parent = gameObject.transform;
             currentAnimal.transform.localScale *= spawnScale;
+
+            if (isSwimmingLevel)
+            {
+                currentAnimal.GetComponent<Animal_SelfKill>().isSwimming = true;
+            }
+
             catSpawner.totalSpawnedNumber++;
         }
     }
@@ -178,6 +186,12 @@ public class Spawner : MonoBehaviour
             GameObject cat = Instantiate(animal[5], spawnPos, Quaternion.identity);
             cat.transform.parent = gameObject.transform;
             cat.transform.localScale *= spawnScale;
+
+            if (isSwimmingLevel)
+            {
+                cat.GetComponent<Animal_SelfKill>().isSwimming = true;
+            }
+
             catSpawner.isCatSpawned = true;
             catSpawner.spawnCat = false;
         }
@@ -196,6 +210,11 @@ public class Spawner : MonoBehaviour
                 GameObject cat = Instantiate(animal[5], animalTransform, Quaternion.identity);
                 cat.transform.parent = gameObject.transform;
                 cat.transform.localScale *= spawnScale;
+
+                if (isSwimmingLevel)
+                {
+                    cat.GetComponent<Animal_SelfKill>().isSwimming = true;
+                }
 
                 catSpawner.isCatSpawned = true;
                 catSpawner.spawnCat = false;

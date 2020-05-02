@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Amimal_SelfKill : MonoBehaviour
+public class Animal_SelfKill : MonoBehaviour
 {
     public float startRenderingTime = 0.1f;
     private float currentTime;
     private bool isRendered = false;
+
+    public SpriteRenderer swimming;
+    public bool isSwimming;
 
     void Start()
     {
@@ -19,6 +22,12 @@ public class Amimal_SelfKill : MonoBehaviour
         if (Time.time - currentTime >= startRenderingTime && !isRendered)
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = true;
+
+            if (isSwimming)
+            {
+                swimming.enabled = true;
+            }
+
             isRendered = true;
         }
 
