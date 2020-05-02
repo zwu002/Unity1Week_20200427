@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Cat_MouseBehaviour : MonoBehaviour
 {
-
+    public AudioSource audioSource;
     void OnMouseDown()
     {
-        Debug.Log("Cat clicked!");
+        if (!GameManager.GetInstance().isCatFound)
+        {
+            Debug.Log("Cat clicked!");
 
-        GameManager.GetInstance().CatFound();
+            audioSource.Play();
+
+            GameManager.GetInstance().CatFound();
+        }
     }
 }

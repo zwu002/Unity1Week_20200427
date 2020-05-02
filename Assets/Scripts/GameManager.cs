@@ -91,26 +91,24 @@ public class GameManager : MonoBehaviour
 
         RecordBestTime();
 
+        KillAllAnimal();
+
         timeThisRound.text = (int)totalTime + "s";
         bestTime.text = (int)DataManager.BestTime + "s";
-
-        Time.timeScale = 0;
     }
 
     public void GameOver()
     {
         Debug.Log("Game Over!");
+        StartCoroutine(KillAllAnimal());
 
         mainHUD.SetActive(false);
         gameOverUI.SetActive(true);
-
-        Time.timeScale = 0;
     }
 
     public void RestartGame()
     {
-        // in a violent way :)
-        SceneManager.LoadScene("MainScene");
+        StartCoroutine(Restart());
     }
 
     public void LoadNextLevel()
@@ -121,6 +119,8 @@ public class GameManager : MonoBehaviour
 
         levelUI[currentLevel-1].SetActive(false);    
         levelUI[currentLevel].SetActive(true);
+
+        isCatFound = false;
     }
 
     public void LevelBegin()
@@ -146,8 +146,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator KillAllAnimal()
     {
-        killingAnimals = true;
         yield return new WaitForSeconds(1f);
+        killingAnimals = true;
+        yield return new WaitForSeconds(0.1f);
 
         killingAnimals = false;
 
@@ -155,5 +156,11 @@ public class GameManager : MonoBehaviour
         {
             level.SetActive(false);
         }
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SceneManager.LoadScene("MainScene");
     }
 }
