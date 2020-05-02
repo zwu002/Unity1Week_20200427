@@ -185,15 +185,26 @@ public class Spawner : MonoBehaviour
 
     void ReplaceAnimalWithCat()
     {
-        Vector3 animalTransform = colliders[5].gameObject.transform.position;
+        for (int i = 0; i <= catSpawner.totalSpawnedNumber; i++)
+        {
+            if (!colliders[i].gameObject.CompareTag("NoSpawnZone"))
+            {
+                Vector3 animalTransform = colliders[i].gameObject.transform.position;
 
-        Destroy(colliders[5].gameObject);
+                Destroy(colliders[i].gameObject);
 
-        GameObject cat = Instantiate(animal[5], animalTransform, Quaternion.identity);
-        cat.transform.localScale *= spawnScale;
+                GameObject cat = Instantiate(animal[5], animalTransform, Quaternion.identity);
+                cat.transform.parent = gameObject.transform;
+                cat.transform.localScale *= spawnScale;
 
-        catSpawner.isCatSpawned = true;
-        catSpawner.spawnCat = false;
-        catSpawner.isCatKilled = false;
+                catSpawner.isCatSpawned = true;
+                catSpawner.spawnCat = false;
+                catSpawner.isCatKilled = false;
+
+                break;
+            }
+        }
     }
+
+
 }

@@ -15,7 +15,7 @@ public class Animal_MouseBehaviour : MonoBehaviour
     void Start ()
     {
         timer = Time.time;
-        nextIdleTime = Random.Range(minIdleTime, maxIdleTime);
+        nextIdleTime = Random.Range(0, 3);
     }
 
     void Update ()

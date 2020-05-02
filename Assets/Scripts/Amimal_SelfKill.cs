@@ -34,6 +34,10 @@ public class Amimal_SelfKill : MonoBehaviour
         if (collider.CompareTag("NoSpawnZone"))
         {
             Debug.Log("This animal is in No Spawn Zone!");
+            CatSpawner catSpawner = GetComponentInParent<CatSpawner>();
+
+            catSpawner.totalSpawnedNumber--;
+
             Destroy(gameObject);
         }
     }
