@@ -128,8 +128,26 @@ public class GameManager : MonoBehaviour
         bestTime.text = (int)DataManager.BestTime + "s";
     }
 
-    public void GameOver()
+    IEnumerator GameOver()
     {
+        GameObject[] cat = GameObject.FindGameObjectsWithTag("Cat");
+
+        if (cat.Length == 1)
+            {
+                 cat[0].GetComponent<Animal_MouseBehaviour>().animator.SetBool("IsHover", true);
+                ParticleSystem[] particle = cat[0].GetComponentsInChildren<ParticleSystem>();
+
+                if (particle.Length == 1)
+                {
+                    particle[0].Play();
+                }
+        }
+
+        isGameOver = true;
+
+        yield return new WaitForSeconds(1.5f);
+
+
         Debug.Log("Game Over!");
         StartCoroutine(KillAllAnimal());
 

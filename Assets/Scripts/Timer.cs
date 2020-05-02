@@ -28,9 +28,9 @@ public class Timer : MonoBehaviour
 
         foreground.fillAmount = currentTime / currentLevelTime;
 
-        if (currentTime <=0)
+        if (currentTime <=0 && !GameManager.GetInstance().isGameOver)
         {
-            GameManager.GetInstance().GameOver();
+            GameManager.GetInstance().StartCoroutine("GameOver");
         }
     }
 

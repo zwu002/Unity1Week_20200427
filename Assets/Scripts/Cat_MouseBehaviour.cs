@@ -5,6 +5,8 @@ using UnityEngine;
 public class Cat_MouseBehaviour : MonoBehaviour
 {
     public AudioSource audioSource;
+    public ParticleSystem particle;
+
     void OnMouseDown()
     {
         if (!GameManager.GetInstance().isCatFound && !GameManager.GetInstance().isPaused)
@@ -12,6 +14,8 @@ public class Cat_MouseBehaviour : MonoBehaviour
             Debug.Log("Cat clicked!");
 
             audioSource.Play();
+
+            particle.Play();
 
             GameManager.GetInstance().CatFound();
         }
