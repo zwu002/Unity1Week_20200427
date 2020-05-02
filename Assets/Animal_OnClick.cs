@@ -7,6 +7,6 @@ public class Animal_OnClick : MonoBehaviour
     public AudioSource audioSource;
     void OnMouseDown()
     {
-        if (!GameManager.GetInstance().isCatFound) audioSource.Play();
+        if (!GameManager.GetInstance().isCatFound && !GameManager.GetInstance().isPaused) audioSource.Play();
     }
 }

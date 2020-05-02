@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject levelLoadingUI;
     public GameObject gameOverUI;
     public GameObject gameWinUI;
+    public GameObject pauseUI;
     public TextMeshProUGUI timeThisRound;
     public TextMeshProUGUI bestTime;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     public int totalLevel;
     public bool isCatFound;
     public bool isGameOver;
+    public bool isPaused;
 
     static GameManager instance = null;
 
@@ -53,9 +55,38 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();             
+            }
+        }
+    }
+
     public static GameManager GetInstance()
     {
         return instance;
+    }
+
+    public void Pause()
+    {
+        pauseUI.SetActive(true);
+        isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        pauseUI.SetActive(false);
+        isPaused = false;
+        Time.timeScale = 1;
     }
 
     public void CatFound()
