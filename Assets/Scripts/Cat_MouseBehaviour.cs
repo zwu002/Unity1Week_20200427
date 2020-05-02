@@ -9,7 +9,7 @@ public class Cat_MouseBehaviour : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!GameManager.GetInstance().isCatFound && !GameManager.GetInstance().isPaused)
+        if (!GameManager.GetInstance().isCatFound && !GameManager.GetInstance().isPaused && !GameManager.GetInstance().isGameOver)
         {
             Debug.Log("Cat clicked!");
 

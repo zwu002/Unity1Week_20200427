@@ -18720,7 +18720,7 @@ MonoBehaviour:
   - 30
   - 35
   - 40
-  - 50
+  - 55
   - 70
   mainMenu: {fileID: 1416766626}
   mainHUD: {fileID: 437844965}
